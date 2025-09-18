@@ -1,0 +1,205 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/minimalist-retail-clothing-display.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "<strong>Featured products</strong>",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "chevronleft",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "slideshow_mzjeQp": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_jirGrG": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/beach-towel-in-wind.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "Wear. Go. Glow.",
+            "heading_size": "h1",
+            "subheading": "New Season, New Style",
+            "button_label": "Shop Now",
+            "link": "shopify://collections",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-center",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-1"
+          }
+        },
+        "slide_tPM4QU": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/woman-in-summer-floral-fashion.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "Wear. Go. Glow.",
+            "heading_size": "h1",
+            "subheading": "New Season, New Style",
+            "button_label": "Shop Now",
+            "link": "shopify://collections",
+            "button_style_secondary": false,
+            "show_text_box": true,
+            "box_align": "middle-center",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_jirGrG",
+        "slide_tPM4QU"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "ambient",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "collection_list_8cKUam": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_JghDb8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dresses-1"
+          }
+        },
+        "featured_collection_K9UYXY": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "shorts"
+          }
+        },
+        "featured_collection_tTPCfQ": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "jeans"
+          }
+        },
+        "featured_collection_z9MTGb": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "content-creator-essentials"
+          }
+        },
+        "featured_collection_Yd8ekd": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sport"
+          }
+        },
+        "featured_collection_qt8kNj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sneakers"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_JghDb8",
+        "featured_collection_K9UYXY",
+        "featured_collection_tTPCfQ",
+        "featured_collection_z9MTGb",
+        "featured_collection_Yd8ekd",
+        "featured_collection_qt8kNj"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "<strong>Categories</strong>",
+        "heading_size": "h0",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "slideshow_mzjeQp",
+    "collection_list_8cKUam"
+  ]
+}
