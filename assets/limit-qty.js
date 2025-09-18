@@ -124,28 +124,6 @@
     return `mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
   }
 
-  function openChatWidget() {
-    try { if (window.tidioChatApi?.open) { window.tidioChatApi.open(); return true; } } catch {}
-    try { if (typeof Intercom === 'function') { Intercom('show'); return true; } } catch {}
-    try { if (window.$crisp?.push) { window.$crisp.push(['do', 'chat:open']); return true; } } catch {}
-    try { if (window.fcWidget?.open) { window.fcWidget.open(); return true; } } catch {} // Freshchat
-    try { if (window.HSBEACON) { HSBEACON.open(); return true; } } catch {}              // HelpScout
-    const launchers = [
-      '#launcher',
-      '[data-tidio-open-chat]',
-      '.crisp-client',
-      '.js-chat-open',
-      '[data-mk-open-chat]',
-      '.chat-widget-button'
-    ];
-    for (const sel of launchers) {
-      const el = document.querySelector(sel);
-      if (el) { try { el.click(); return true; } catch {} }
-    }
-    window.dispatchEvent?.(new CustomEvent('open-chat'));
-    return false;
-  }
-
   // ---------- toast (no "Only X left") ----------
   function ensureToast() {
     let css = document.getElementById('mk-limit-toast-css');
@@ -182,17 +160,14 @@
           <strong class="mk-badge" id="mk-badge">Limit: ${MAX} per size</strong>
           <span id="mk-limit-copy" class="mk-copy">
             You’ve reached the limit for this size.
-            For bulk orders or a discount, <a href="#" id="mk-chat-link">chat with us</a>
-            or email <a href="#" id="mk-email-link">support</a>.
+            For bulk orders or a discount, chat with us
+            or <a href="#" id="mk-email-link">email support</a>.
           </span>
           <button id="mk-limit-close" class="mk-close" aria-label="Close">×</button>
         </div>`;
       document.body.appendChild(toast);
 
       toast.querySelector('#mk-limit-close')?.addEventListener('click', () => (toast.style.display = 'none'));
-      toast.querySelector('#mk-chat-link')?.addEventListener('click', (e) => {
-        e.preventDefault(); openChatWidget();
-      });
       toast.querySelector('#mk-email-link')?.addEventListener('click', (e) => {
         e.preventDefault();
         const details = getContextDetails(document.activeElement || document.body);
@@ -207,18 +182,23 @@
 
   function showLimitToast(attemptedQty) {
     const toast = ensureToast();
+
+    // Update email link only
     const details = getContextDetails(document.activeElement || document.body);
     const href = buildMailto({ ...details, attemptedQty });
     const emailLink = toast.querySelector('#mk-email-link');
     if (emailLink) emailLink.setAttribute('href', href);
 
-    toast.querySelector('#mk-badge').textContent = `Limit: ${MAX} per size.`;
-    const copy = toast.querySelector('#mk-limit-copy');
-    if (copy && copy.firstChild) copy.firstChild.textContent = 'You’ve reached the limit for this size. ';
+    // Update badge text (optional punctuation consistency)
+    const badge = toast.querySelector('#mk-badge');
+    if (badge) badge.textContent = `Limit: ${MAX} per size.`;
+
+    // Do NOT modify #mk-limit-copy here
     toast.style.display = 'block';
     clearTimeout(showLimitToast._t);
     showLimitToast._t = setTimeout(() => (toast.style.display = 'none'), 7000);
   }
+
 
   // ---------- clamp ONLY by policy limit (never by stock) ----------
   function clampInputByLimit(input) {
